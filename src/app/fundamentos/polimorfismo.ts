@@ -7,7 +7,7 @@ export default async function polimorfismo() {
     TerminalUtil.titulo("Polimorfismo")
 
     const [tipoCarro] = await TerminalUtil.selecao(
-        "Tipo de Carro?", 
+        "Tipo de Carro? 🚗", 
         ["ferrari","fusca"]
     )
 
