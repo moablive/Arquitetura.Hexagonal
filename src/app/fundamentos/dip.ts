@@ -1,9 +1,14 @@
+//Externo
+import { terminal } from 'terminal-kit';
+
+
 import TerminalUtil from '../util/terminalUtil';
 import corrida from "@/core/fundamentos/Corrida";
 import Carro from '@/core/fundamentos/Carro';
 import Fusca from '@/core/fundamentos/Fusca';
 import Ferrari from '@/core/fundamentos/Ferrari';
 import Civic from '@/core/fundamentos/Civic';
+
 
 
 export default async function dip() {
@@ -26,6 +31,6 @@ export default async function dip() {
          break
    }
 
-   corrida(carro);
+   corrida(carro, terminal.red);
    await TerminalUtil.esperarEnter()
 }
