@@ -1,18 +1,16 @@
 import { terminal } from 'terminal-kit';
-import Fusca from './Fusca';
+import Carro from './Carro';
 
-export default function corrida() {
+export default function corrida(carro: Carro){
    
-   const carro = new Fusca()
-
    Array.from({length: 10}).forEach(() => {
       carro.acelerar()
       terminal.red(`\nVelocidade: ${carro.velocidadeAtual}`) 
    })
-  
+
    Array.from({length: 10}).forEach(() => {
       carro.frear()
       terminal.red(`\nVelocidade: ${carro.velocidadeAtual}`) 
    })   
-  
+
 }
