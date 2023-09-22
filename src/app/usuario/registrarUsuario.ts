@@ -1,7 +1,8 @@
 import TerminalUtil from "@/app/util/terminalUtil"
 import Usuario from "@/core/usuario/model/Usuario";
 import RegistrarUsuario from "@/core/usuario/service/RegistrarUsuario";
-import InverterSenhaCripto from "@/adpter/auth/InverterSenhaCripto";
+import SenhaBcrypt from "@/adpter/auth/SenhaBcrypt";
+import RepositorioUsuarioEmMemoria from '../../adpter/db/RepositorioUsuarioEmMemoria';
 
 export default async function registrarUsuario() {
     TerminalUtil.titulo("registrar Usuario");
@@ -11,8 +12,9 @@ export default async function registrarUsuario() {
     const senha = await TerminalUtil.campoRequerido('Senha: ','123456')
     const usuario: Usuario = { nome, email, senha }
 
-    const ProvedorCriptografia = new InverterSenhaCripto()
-    const casoDeUso = new RegistrarUsuario(ProvedorCriptografia)
+    const Repositorio = new RepositorioUsuarioEmMemoria()
+    const ProvedorCriptografia =  new SenhaBcrypt
+    const casoDeUso = new RegistrarUsuario(Repositorio, ProvedorCriptografia)
     
     await casoDeUso.executar(usuario)
 
