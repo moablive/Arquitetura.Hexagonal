@@ -1,9 +1,9 @@
 import CasoDeUso from '@/core/shared/CasoDeUso';
 import Erros from '@/core/shared/Erros';
 import Id from '@/core/shared/Id';
-import Usuario from '@/core/usuario/model/Usuario';
 import ProvedorCriptografia from './ProvedorCriptografia'
 import RepositorioUsuario from './RepositorioUsuario'; 
+import Usuario from '@/core/usuario/model/Usuario';
 
 export default class RegistrarUsuario implements CasoDeUso<Usuario, void> { 
 
@@ -26,6 +26,5 @@ export default class RegistrarUsuario implements CasoDeUso<Usuario, void> {
         };
         
         this.repositorio.inserir(novoUsuario)
-        console.log(`\n\n${JSON.stringify(novoUsuario)}`);
     }
 }
