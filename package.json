@@ -9,7 +9,7 @@
         "test": "jest"
     },
     "keywords": [],
-    "author": "Leonardo Moura Leitão",
+    "author": "Guilherme Bonato",
     "license": "ISC",
     "devDependencies": {
         "@types/jest": "^29.5.3",
