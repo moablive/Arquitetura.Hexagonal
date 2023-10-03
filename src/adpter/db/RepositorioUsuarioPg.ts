@@ -1,30 +1,29 @@
-import Usuario from '../../core/usuario/model/Usuario';
-import db from './db';
+import Usuario from "../../core/usuario/model/Usuario"
+import db from "./db"
 
 export default class RepositorioUsuarioPg {
-
     async inserir(usuario: Usuario) {
         await db.query(
-            `INSERT INTO usuarios
+            `insert into usuarios
             (id, nome, email, senha)
-            VALUES ($1, $2, $3, $4)`, 
+            values ($1, $2, $3, $4)`,
             [
                 usuario.id,
                 usuario.nome,
                 usuario.email,
-                usuario.senha
+                usuario.senha,
             ]
-        );
+        )
     }
 
     async buscarPorEmail(
         email: string
     ): Promise<Usuario | null> {
         const usuario = await db.oneOrNone(
-            "SELECT * FROM usuarios WHERE email = $1",
+            "select * from usuarios where email = $1",
             [email]
-        );
-        if (!usuario) return null;
-        return usuario;
+        )
+        if (!usuario) return null
+        return usuario
     }
 }

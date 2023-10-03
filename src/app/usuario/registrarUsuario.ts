@@ -18,7 +18,7 @@ export default async function registrarUsuario() {
         const Repositorio = new RepositorioUsuarioPg()
         const ProvedorCriptografia =  new SenhaBcrypt
         const casoDeUso = new RegistrarUsuario(Repositorio, ProvedorCriptografia)
-        
+
         await casoDeUso.executar(usuario)
 
         sucesso('Usuario Registrado com Sucesso')
